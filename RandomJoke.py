@@ -33,13 +33,7 @@ class randomJoke:
         if not sourceCode:
             print('获取网页内容失败~！')
             quit()
-        pattern = re.compile(' <pre.*?js="joke_summary".*?"first_char">(.*?)</span>(.*?)</pre>
- 
-.*?class="user_info">.*?<a.*?>(.*?)</a>.*?
- 
-(.*?)
- 
-',re.S)
+        pattern = re.compile(' <pre.*?js="joke_summary".*?"first_char">(.*?)</span>(.*?)</pre>.*?class="user_info">.*?<a.*?>(.*?)</a>.*?(.*?)',re.S)
         items = re.findall(pattern,sourceCode)
         self.content = items
         print u"已经爬取源代码...正在解析源代码..."
